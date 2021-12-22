@@ -9,7 +9,7 @@ def rotateMatrix(mat1):
         rotatedMatrix.append(currentRow)
     return rotatedMatrix
 
-mat1 = [[0,1,2],[3,4,5],[6,7,8]]
+mat1 = [[0,1],[2,3]]
 print(mat1)
 result = rotateMatrix(mat1)
 print(result)
