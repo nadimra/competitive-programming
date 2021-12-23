@@ -14,7 +14,7 @@ class LinkedList:
         node = self.head
         nodes = []
         while node is not None:
-            nodes.append(node.data)
+            nodes.append(str(node.data))
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)
@@ -30,5 +30,25 @@ class LinkedList:
                     break
                 n = n.next
         return llist
+    
+    def append_node(self,llist,nodeData):
+        newNode = Node(nodeData)
 
+        if(llist.head is None):
+            llist.head = newNode
+            return
+        else:
+            n = llist.head
+    
+        # Go to last node
+        while n.next is not None:
+            n = n.next
+        n.next = newNode
         
+        return
+
+    def last_node(self,llist):
+        n = llist.head
+        while n.next is not None:
+            n = n.next
+        return n
