@@ -13,7 +13,6 @@ def removeDups(llist):
             #delete node
             llist.delete_node(llist,current)
         current = current.next
-    
     print(llist)
 
 def removeDupsMultiPointer(llist):
