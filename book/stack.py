@@ -5,11 +5,13 @@ class Node:
     def __init__(self,data):
         self.data = data
         self.next = None
+        self.nextMin = None
      
 class Stack:
     # head is default NULL
     def __init__(self):
         self.head = None
+        self.currentMin = None
      
     # Checks if stack is empty
     def isempty(self):
@@ -24,11 +26,16 @@ class Stack:
          
         if self.head == None:
             self.head=Node(data)
-             
-        else:
+            self.currentMin = self.head
+        else:                
             newnode = Node(data)
             newnode.next = self.head
             self.head = newnode
+
+            if(data<self.currentMin.data):
+                newnode.nextMin = self.currentMin
+                self.currentMin = newnode
+
      
     # Remove element that is the current head (start of the stack)
     def pop(self):
@@ -39,9 +46,15 @@ class Stack:
         else:
             # Removes the head node and makes
             #the preceding one the new head
+
             poppednode = self.head
+            if(self.currentMin == poppednode):
+                self.currentMin = poppednode.nextMin
             self.head = self.head.next
             poppednode.next = None
+
+            if(self.isempty()):
+                self.currentMin = None
             return poppednode.data
      
     # Returns the head node data
@@ -67,4 +80,11 @@ class Stack:
                 print(iternode.data,"->",end = " ")
                 iternode = iternode.next
             return
-         
+    
+    def returnMin(self):
+        if self.currentMin is not None:
+            print("\nMin is: "+str(self.currentMin.data))
+            return self.currentMin
+        else:
+            print("Stack empty")
+            return
