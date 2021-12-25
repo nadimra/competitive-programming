@@ -22,6 +22,11 @@ nodeC = graph.Node("C",None)
 nodeB = graph.Node("B",[nodeD])
 nodeA = graph.Node("A",[nodeB,nodeC])
 
+nodeA.addChild(nodeB)
+nodeA.addChild(nodeC)
+nodeB.addChild(nodeD)
+nodeD.addChild(nodeE)
+
 graph1.addNode(nodeA)
 graph1.addNode(nodeB)
 graph1.addNode(nodeC)

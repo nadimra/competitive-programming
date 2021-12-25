@@ -7,8 +7,11 @@ class Graph:
 
 
 class Node:
-    def __init__(self,name,children):
+    def __init__(self,name):
         self.name = name
-        self.children = children
+        self.children = None
+    
+    def addChild(self,node):
+        self.children.append(node)
 
 
