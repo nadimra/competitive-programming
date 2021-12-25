@@ -34,8 +34,14 @@ class StackOfPlates:
             self.getCurrentStack()[currentStackPointer] = None
             self.setCurrentStackPointer(-1)
         
-    def displayStack(self,partitionNum):
-        pass
+    def popAt(self,stackNum):
+        currentStackPointer = self.getSpecificStackPointer(stackNum)
+        if(currentStackPointer == -1):
+            print("Cannot remove at specific stack")
+            return
+        else:
+            self.getSpecificStack(stackNum)[currentStackPointer] = None
+            self.setSpecificStackPointer(stackNum,-1)
 
     def displayAll(self):
         for i in range(0,len(self.stackCollection)):
@@ -62,6 +68,20 @@ class StackOfPlates:
     def setCurrentStackPointer(self,add):
         self.pointerCollection[-1] += add 
 
+    def getSpecificStackPointer(self,stackNum):
+        return self.pointerCollection[stackNum-1]
+
+    def setSpecificStackPointer(self,stackNum,add):
+        self.pointerCollection[stackNum-1] += add 
+
+    def getSpecificStack(self,stackNum):
+        return self.stackCollection[stackNum-1]
+
+    def removeSpecificStack(self,stackNum):
+        del self.stackCollection[stackNum-1]
+        del self.pointerCollection[stackNum-1]
+
+
 stacks = StackOfPlates(3)
 stacks.push(1)
 stacks.push(2)
@@ -75,13 +95,8 @@ stacks.push(4)
 stacks.push(5)
 stacks.push(6)
 stacks.push(7)
-stacks.pop()
-stacks.pop()
-stacks.pop()
-stacks.pop()
-stacks.pop()
-stacks.pop()
-stacks.pop()
-stacks.pop()
+stacks.popAt(2)
+stacks.popAt(2)
+stacks.popAt(2)
 
 stacks.displayAll()
