@@ -28,6 +28,7 @@ def createBinarySearchTree(numArray):
         counter+= 1
 
     g.displayAdjacencyList()
+    return g,root
 
 #numArray = [3,4,2,7,2,10,5]
 
