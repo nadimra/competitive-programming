@@ -18,7 +18,11 @@ class Node:
     def __init__(self,value):
         self.value = value
         self.children = [None,None]
+        self.parent = None
     
+    def setParent(self,node):
+        self.parent = node
+
     def addChildLeft(self,node):
         self.children[0] = node
 
@@ -42,6 +46,13 @@ class Node:
 
     def getRightChild(self):
         return self.children[1]
+    
+    def isLeaf(self):
+        if self.children == [None,None]:
+            return True
+        else:
+            return False
+
 
 def createBinarySearchTree(numArray):
     g = Graph()
