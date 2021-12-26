@@ -71,6 +71,6 @@ def createBinarySearchTree(numArray):
 
     g.displayAdjacencyList()
 
-numArray = [3,4,2,7,2,10,5]
+#numArray = [3,4,2,7,2,10,5]
 
-createBinarySearchTree(numArray)
+#createBinarySearchTree(numArray)
