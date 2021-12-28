@@ -11,8 +11,6 @@ class Graph:
             for child in node.children:
                 print(child.value if child is not None else None,end=" ")
             print()
-        
-
 
 class Node:
     def __init__(self,value):
@@ -54,34 +52,6 @@ class Node:
             return False
 
 
-def createBinarySearchTree(numArray):
-    g = Graph()
-    root = Node(numArray[0])
-    g.addNode(root)
-
-    counter = 1
-    currentNode = root
-    while(counter < len(numArray)):
-        newNode = Node(numArray[counter]) 
-        placedNode = False
-        while not placedNode:
-            if currentNode.value >= numArray[counter]:
-                if(currentNode.checkLeftChildEmpty()):
-                    currentNode.addChildLeft(newNode)
-                    placedNode = True
-                else:
-                    currentNode = currentNode.getLeftChild()
-            else:
-                if(currentNode.checkRightChildEmpty()):
-                    currentNode.addChildRight(newNode)
-                    placedNode = True
-                else:
-                    currentNode = currentNode.getRightChild()                
-            
-        g.addNode(newNode)
-        counter+= 1
-
-    g.displayAdjacencyList()
 
 #numArray = [3,4,2,7,2,10,5]
 
