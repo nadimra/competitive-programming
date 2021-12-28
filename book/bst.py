@@ -6,10 +6,11 @@ def createBinarySearchTree(numArray):
     g.addNode(root)
 
     counter = 1
-    currentNode = root
+    #currentNode = root
     while(counter < len(numArray)):
         newNode = binaryTree.Node(numArray[counter]) 
         placedNode = False
+        currentNode = root
         while not placedNode:
             if currentNode.value >= numArray[counter]:
                 if(currentNode.checkLeftChildEmpty()):
@@ -27,7 +28,7 @@ def createBinarySearchTree(numArray):
         g.addNode(newNode)
         counter+= 1
 
-    g.displayAdjacencyList()
+    #g.displayAdjacencyList()
     return g,root
 
 #numArray = [3,4,2,7,2,10,5]

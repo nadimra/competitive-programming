@@ -64,4 +64,8 @@ def validateBST(root,allowableMin,allowableMax):
 
 #numArray = [3,4,2,7,2,10,5]
 #g,root = bst.createBinarySearchTree(numArray)
+
+numArray = [3,4,2,7,2,10,5]
+g,root = bst.createBinarySearchTree(numArray)
+
 print(validateBST(nodeA,float('-inf'),float('inf')))
